@@ -1,0 +1,10 @@
+{
+    "Users": true,
+    "Groups": true,
+    "Clients": true,
+    "Products": true,
+    "User": true,
+    "Product": true,
+    "Client": true,
+    "Group": true
+}

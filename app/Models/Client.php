@@ -1,23 +1,18 @@
 <?php
 
-namespace User;
+namespace Client;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model 
+class Client extends Model 
 {
 
-    protected $table = 'users';
+    protected $table = 'Clients';
     public $timestamps = true;
 
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-
-    public function group()
-    {
-        return $this->belongsTo('Group');
-    }
 
 }

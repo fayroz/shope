@@ -1,23 +1,23 @@
 <?php
 
-namespace User;
+namespace Group;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model 
+class Group extends Model 
 {
 
-    protected $table = 'users';
+    protected $table = 'groups';
     public $timestamps = true;
 
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
-    public function group()
+    public function Department()
     {
-        return $this->belongsTo('Group');
+        return $this->belongsTo('Department');
     }
 
 }
