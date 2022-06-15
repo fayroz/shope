@@ -5,25 +5,39 @@ namespace Modules\User\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Traits\UserTrait;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    use UserTrait;
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('user::index');
+        $users=$this->get_all_users();
+        return $users;
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function add(Request $request)
     {
-        return view('user::create');
+
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users|max:255',
+            'password' => 'required',
+            'group_id' => 'required',
+          ]);
+
+        $user=$this->add_user($request->all());
+        return $user;
     }
 
     /**
