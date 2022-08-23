@@ -31,7 +31,7 @@ return [
 
     'compiled' => env(
         'VIEW_COMPILED_PATH',
-
+jkk
         realpath(storage_path('framework/views'))
     ),
 ];
